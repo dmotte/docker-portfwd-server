@@ -11,7 +11,21 @@ If you want a **rootless** version of this image, check out [dmotte/docker-portf
 
 ## Usage
 
-TODO
+The first things you need are **host keys** for the OpenSSH server and an **SSH key pair** for the client to be able to connect. See the usage example of [dmotte/docker-portmap-server](https://github.com/dmotte/docker-portmap-server) for how to get them.
+
+In general, the use of this image is very similar to [dmotte/docker-portmap-server-rootless](https://github.com/dmotte/docker-portmap-server-rootless).
+
+Example:
+
+```bash
+docker run -it --rm \
+    -v "$PWD/hostkeys:/ssh-host-keys" \
+    -v "$PWD/myclientkey.pub:/ssh-client-keys/myuser/myclientkey.pub:ro" \
+    -p2222:22 \
+    dmotte/portfwd-server myuser:10.0.2.15:8080
+```
+
+See [dmotte/docker-portmap-server](https://github.com/dmotte/docker-portmap-server) for further details on usage; it's very similar to this one.
 
 For a more complex example, refer to the [`docker-compose.yml`](docker-compose.yml) file.
 
