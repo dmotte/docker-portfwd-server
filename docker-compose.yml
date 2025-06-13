@@ -11,7 +11,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - ssh-host-keys:/ssh-host-keys
       - ./ssh-client-keys:/ssh-client-keys
-    command: alice:127.0.0.1:8001 bob:127.0.0.1:8002,10.0.2.2:8003
+    command: alice:10.0.2.15:8001 bob:10.0.2.15:8002,10.0.2.2:8003
 
 volumes:
   ssh-host-keys: {}
